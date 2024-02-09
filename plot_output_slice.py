@@ -29,16 +29,16 @@ def readdata(ax, name):
 def plotframe(ax, i):
     ax.clear()
     basename ='Blast.hydro_w'
-    suffix = 'vtk'
+    suffix = 'bin'
 
-    name = f"vtk/{basename}.{i:05}.{suffix}"
+    name = f"bin/{basename}.{i:05}.{suffix}"
     print(f"plotting {name}...")
-
-    im = readdata(ax, name)
-    ax.set_xlabel(r"$x$")
-    ax.set_ylabel(r"$y$")
-
-    plt.savefig(f"output_images/img{i:05}.png")
+    imgfile = f"output_images/img{i:05}.png"
+    subprocess.Popen(["python","plot_slice.py",name,"dens",imgfile,"-c","magma","--vmin","4e-2","--vmax","1.3"])
+    #im = readdata(ax, name)
+    #ax.set_xlabel(r"$x$")
+    #ax.set_ylabel(r"$y$")
+    #plt.savefig(f"output_images/img{i:05}.png")
     
 def plot_output():
     init_plot()

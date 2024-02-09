@@ -9,13 +9,13 @@ basename  = Blast      # problem ID: basename of output filenames
 
 <mesh>
 nghost    = 3          # Number of ghost cells
-nx1       = 200        # Number of zones in X1-direction
+nx1       = 400        # Number of zones in X1-direction
 x1min     = -0.5       # minimum value of X1
 x1max     = 0.5        # maximum value of X1
 ix1_bc    = periodic   # inner-X1 boundary flag
 ox1_bc    = periodic   # outer-X1 boundary flag
 
-nx2       = 200        # Number of zones in X2-direction
+nx2       = 400        # Number of zones in X2-direction
 x2min     = -0.75      # minimum value of X2
 x2max     = 0.75       # maximum value of X2
 ix2_bc    = periodic   # inner-X2 boundary flag
@@ -57,6 +57,6 @@ file_type  = hst        # History data dump
 dt         = 0.01       # time increment between outputs
 
 <output2>
-file_type  = vtk        # Binary data dump
+file_type  = bin       # Binary data dump
 variable   = hydro_w    # variables to be output
 dt         = 0.1       # time increment between outputs

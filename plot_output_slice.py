@@ -33,7 +33,7 @@ def plotslice(i):
     name = f"bin/{basename}.{i:05}.{suffix}"
     print(f"plotting {name}...")
     imgfile = f"output_images/img{i:05}.png"
-    subprocess.Popen(["python","plot_slice.py",name,"dens",imgfile,"-c","magma","--vmin","4e-2","--vmax","1.3"])
+    subprocess.Popen(["python","plot_slice.py",name,"dens",imgfile,"-c","magma","--vmin","4e-2","--vmax","1.3","--dpi","100"])
 
     
 def plot_output():

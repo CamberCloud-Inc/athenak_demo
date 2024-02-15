@@ -26,8 +26,7 @@ def readdata(ax, name):
     ax.set_aspect("equal")
     return im
 
-def plotframe(ax, i):
-    ax.clear()
+def plotslice(i):
     basename ='Blast.hydro_w'
     suffix = 'bin'
 
@@ -35,19 +34,13 @@ def plotframe(ax, i):
     print(f"plotting {name}...")
     imgfile = f"output_images/img{i:05}.png"
     subprocess.Popen(["python","plot_slice.py",name,"dens",imgfile,"-c","magma","--vmin","4e-2","--vmax","1.3"])
-    #im = readdata(ax, name)
-    #ax.set_xlabel(r"$x$")
-    #ax.set_ylabel(r"$y$")
-    #plt.savefig(f"output_images/img{i:05}.png")
+
     
 def plot_output():
     init_plot()
     #Plotting
-    fig = plt.figure(figsize=(9, 7))
-    spec = gridspec.GridSpec(ncols=1,nrows=1)
-    ax0 = fig.add_subplot(spec[0, 0])
     for i in range(0, 101):
-        plotframe(ax0, i)
+        plotslice(i)
     subprocess.Popen(["ffmpeg",
                       "-r", "20",
                       "-s", "1920x1080",
